@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>نتائج التحليل – بَيّن</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+
+<body>
+
+
+
+<!-- المحتوى -->
+<div class="result-card">
+
+    <h2 class="circle-title">نسبة الاشتباه بالتزوير</h2>
+
+    <div class="circle {{ ring_color }}" style="--percent: {{ confidence }};">
+    <div class="inner">
+        <p id="percentage">{{ confidence }}</p>
+    </div>
+</div>
+
+
+    <h3 class="status-text {{ ring_color }}">
+        {{ status }}
+    </h3>
+
+    {% if fraudType %}
+    <p class="type-text">
+        نوع التزوير: <strong>{{ fraudType }}</strong>
+    </p>
+    {% endif %}
+
+</div>
+
+
+
+
+        {% if fraudType %}
+        <p class="type-text">
+            نوع التزوير: <strong>{{ fraudType }}</strong>
+        </p>
+        {% endif %}
+
+    </div>
+
+   <div class="dashboard-grid">
+
+    <!-- العمود الأيمن: التوصيات -->
+    <div class="info-card recommendations-card wide-card">
+        <h3>⭐ توصيات للتعامل مع الملفات المزوّرة</h3>
+        <ul class="recommendations-list">
+            <li>📁 قارن الملف بنسخة أصلية أو موثوقة إن وُجدت.</li>
+            <li>💡 انتبه لاختلاف الإضاءة والظلال.</li>
+            <li>🎯 راجع المناطق المشوّهة أو غير الطبيعية.</li>
+            <li>🛡️ أكّد النتيجة بخبير مختص.</li>
+        </ul>
+    </div>
+
+    <!-- العمود الأيسر -->
+    <div class="left-column">
+
+        <div class="info-card">
+            <h3>⚡ ملخص التحليل</h3>
+            <p>{{ summary }}</p>
+        </div>
+
+        <div class="info-card">
+            <h3>📊 دقة النموذج</h3>
+            <p>{{ confidence }}</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+    <button class="back-btn" onclick="location.href='/'">
+        🔄 تحليل ملف آخر
+    </button>
+
+</div>
+
+</body>
+</html>

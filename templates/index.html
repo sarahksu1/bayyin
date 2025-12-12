@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>بَـيّنْ – منصة كشف التزوير</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- الشريط الجانبي -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="/static/logo.png" alt="شعار بَيّنْ">
+        </div>
+
+        <ul>
+            <li onclick="location.href='/'">🏠 الرئيسية</li>
+            <li onclick="location.href='/dashboard'">📊 لوحة التحكم</li>
+            <li onclick="location.href='/reports'">📑 التقارير</li>
+        </ul>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <section class="hero ">
+
+        <h1 class="main-title">اكتشف الحقيقة المخفية مع بيّن</h1>
+        <p class="main-subtitle">منصة ذكاء اصطناعي سعودية متخصصة في كشف التزوير والتحليل الجنائي الرقمي.</p>
+<form class="upload-container" action="/dashboard" method="POST" enctype="multipart/form-data">
+
+    <!-- زر رفع ملف -->
+    <label for="fileUpload" class="upload-box" id="uploadBox">
+        <span class="upload-icon">📁</span>
+        <span class="upload-text" id="uploadText">اضغط لرفع صورة للتحليل</span>
+        <span class="upload-subtext">PNG, JPG, JPEG</span>
+    </label>
+
+    <input type="file"
+           id="fileUpload"
+           name="image"
+           accept="image/*"
+           hidden
+           required>
+
+    <!-- زر التحليل -->
+    <button type="submit" class="start-btn" id="analyzeBtn" disabled>
+        ✨ ابدأ التحليل
+    </button>
+
+</form>
+
+
+
+
+
+
+
+    </section>
+
+    <!-- عنوان قسم لماذا بَيّن -->
+    <section class="section-title hero  ">
+        لماذا بيّن؟
+    </section>
+
+    <!-- كروت -->
+    <section class="features">
+
+        <div class="card reveal">
+            <span class="icon">🤖</span>
+            <h3>ذكاء اصطناعي متقدم</h3>
+            <p>نماذج تعلم عميق تكشف التعديل المخفي وتحدد نوع التلاعب.</p>
+        </div>
+
+    
+
+        <div class="card reveal">
+            <span class="icon">📂</span>
+            <h3>يدعم جميع الملفات</h3>
+            <p>صور، PDF، ملفات صوتية، فيديو… أي نوع يمكن تحليله فورياً.</p>
+        </div>
+
+        <div class="card reveal">
+            <span class="icon">🛡️</span>
+            <h3>نتائج موثوقة</h3>
+            <p>تقارير احترافية يمكن اعتمادها للتحقق من صحة الملفات.</p>
+        </div>
+
+    </section>
+ <section class="section-title hero ">
+      كيف يعمل بيّن؟
+    </section>
+    <!-- كيف تعمل بَيّن -->
+    <section class="how-it-works reveal">
+
+        <div class="steps">
+            <div class="step reveal">
+                <span class="step-icon">📤</span>
+                <h3>١. رفع الملف</h3>
+                <p>يقوم المستخدم برفع الصورة أو الوثيقة المطلوبة لتحليلها.</p>
+            </div>
+
+            <div class="step reveal">
+                <span class="step-icon">🧠</span>
+                <h3>٢. تشغيل خوارزميات الذكاء الاصطناعي</h3>
+                <p>نموذج مُدرّب يكشف أي تعديل مخفي أو تلاعب رقمي.</p>
+            </div>
+
+            <div class="step reveal">
+                <span class="step-icon">📊</span>
+                <h3>٣. عرض التقرير</h3>
+                <p>حصولك على تقرير احترافي يتضمن النتيجة والتوصيات.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- السكربت الخاص بالحركة -->
+<script>
+    function revealElements() {
+        const reveals = document.querySelectorAll('.reveal');
+
+        reveals.forEach(el => {
+            const windowHeight = window.innerHeight;
+            const elementTop = el.getBoundingClientRect().top;
+            const revealPoint = 120;
+
+            if (elementTop < windowHeight - revealPoint) {
+                el.classList.add('active');   // يظهر العنصر
+            } else {
+                el.classList.remove('active'); // يخفيه عند الصعود
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealElements);
+</script>
+
+
+
+<script>
+const fileInput = document.getElementById("fileUpload");
+const uploadText = document.getElementById("uploadText");
+const uploadBox  = document.getElementById("uploadBox");
+const analyzeBtn = document.getElementById("analyzeBtn");
+
+fileInput.addEventListener("change", () => {
+    if (fileInput.files.length > 0) {
+        uploadText.textContent = "تم رفع الصورة ✔";
+        uploadBox.classList.add("uploaded");
+        analyzeBtn.disabled = false;
+    } else {
+        uploadText.textContent = "اضغط لرفع صورة للتحليل";
+        uploadBox.classList.remove("uploaded");
+        analyzeBtn.disabled = true;
+    }
+});
+</script>
+
+
+</body>
+</html>

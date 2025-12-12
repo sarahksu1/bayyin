@@ -1,0 +1,240 @@
+/* ====== عام (نفس ستايل موقعك) ====== */
+body {
+    margin: 0;
+    font-family: "Tajawal", sans-serif;
+    background: linear-gradient(135deg, #070B14 0%, #0A0F1E 100%);
+    color: #E5E7EB;
+    overflow-x: hidden;
+}
+
+/* ====== السايدبار (نفس قياساتك) ====== */
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background: #0E1526;
+    padding: 25px;
+    text-align: center;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.logo img {
+    width: 120px;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    background: #151d33;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar li:hover {
+    background: #20315a;
+    transform: translateY(-3px);
+}
+
+/* ====== أهم جزء: نفس قياسات صفحاتك ====== */
+.dashboard-container {
+    margin-right: 300px;       /* نفس hero / features / how-it-works */
+    padding: 30px 40px;        /* نفس إحساس الصفحة عندك */
+    box-sizing: border-box;
+
+    /* يمنع التمدد الغريب */
+    width: auto;
+    max-width: 1200px;         /* يثبت الشكل وما يصير “على كامل الصفحة” */
+}
+
+/* ====== العنوان ====== */
+.title {
+    text-align: center;
+    font-size: 32px;
+    margin: 10px 0 25px;
+    text-shadow: 0 0 14px rgba(62,101,255,0.35);
+}
+
+/* ====== كرت النتيجة (السيركل) ====== */
+.result-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 18px;
+    padding: 26px 22px;
+    text-align: center;
+    box-shadow: 0 0 18px rgba(0,0,0,0.18);
+}
+
+/* عنوان فوق السيركل */
+.circle-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #ffffff;
+}
+
+/* السيركل شكل أوضح + لمعة */
+.circle {
+    --percent: 50; /* يتم استبدالها من الـ HTML */
+    --ring: #3E65FF;
+
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+
+    background:
+        radial-gradient(circle at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.9) 70%),
+        conic-gradient(var(--ring) calc(var(--percent) * 1%), rgba(255,255,255,0.10) 0);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 28px rgba(62,101,255,0.15);
+}
+
+.circle.green { --ring: #22c55e; box-shadow: 0 0 28px rgba(34,197,94,0.18); }
+.circle.red   { --ring: #ef4444; box-shadow: 0 0 28px rgba(239,68,68,0.18); }
+
+.inner {
+    width: 150px;
+    height: 150px;
+    background: #070B14;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.7);
+}
+
+#percentage {
+    font-size: 36px;
+    font-weight: 800;
+    color: #fff;
+}
+
+/* الحالة */
+.status-text {
+    margin: 6px 0 0;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.status-text.green { color: #22c55e; }
+.status-text.red   { color: #ef4444; }
+
+.type-text {
+    margin-top: 8px;
+    font-size: 15px;
+    color: #cbd5e1;
+}
+
+/* ====== شبكة الكاردات تحت النتيجة ====== */
+/* يمين: توصيات (أعرض) | يسار: كاردين فوق بعض */
+.dashboard-grid {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 18px;
+    align-items: start;
+}
+
+/* العمود اليسار */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* الكاردات */
+.info-card {
+    background: #0E1526;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 0 18px rgba(0,0,0,0.18);
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.info-card h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.info-card p {
+    margin: 0;
+    font-size: 15px;
+    color: #d2d8e2;
+    line-height: 1.7;
+}
+
+/* كارد التوصيات */
+.recommendations-card h3 {
+    margin-bottom: 14px;
+}
+
+.recommendations-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recommendations-list li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* زر الرجوع */
+.back-btn {
+    margin: 24px auto 0;
+    display: block;
+    padding: 12px 28px;
+    font-size: 17px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3E65FF, #5A7BFF);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(62,101,255,0.35);
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 22px rgba(62,101,255,0.55);
+}
+
+/* ====== موبايل: السايدبار يصير فوق ====== */
+@media (max-width: 900px) {
+    .dashboard-container {
+        margin-right: 0;
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .sidebar {
+        position: relative;
+        width: auto;
+        height: auto;
+        box-shadow: none;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
